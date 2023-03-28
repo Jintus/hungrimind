@@ -7,6 +7,8 @@ You know what is fun about building applications? Making money with them. One wa
 
 Apple Pay is the most seamless way for people using iOS devices to pay for something. 
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/An2S8xKx-k8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## Setup
 You will need an Apple Developer account for this.
 
@@ -26,14 +28,14 @@ And once again, click the blue plus icon to create a new Merchant ID. Make sure 
 <img src="/apple_pay/register_merchant_id.png" alt="Register App ID"/> 
 
 ### 3. Create a Apple Pay Processing Certificate
-For the certificate, you need to switch to the `Certificates` and once again click the blue plus icon. Under `Services` select the `Apple Pay Payment Processing Certificate`, select the `Merchant ID` we just created and it will lead you to this screen, where you will need to a create the certificate.
+For the certificate, you need to switch to the `Certificates` and once again click the blue plus icon. Under `Services` select the `Apple Pay Payment Processing Certificate`, select the `Merchant ID` we just created and it will lead you to this screen, where you will need to create the certificate.
 
 <img src="/apple_pay/payment_certificate.png" alt="Apple Pay Payment Processing Certificate configuration screen"/> 
 
 ### 4. Create a CSR for certificate
 Once you have clicked the button highlighted above, you will need to upload a Certificate Signing Request (CSR) file from your Mac. To do this you need to open the `Keychain Access` application which should be installed on your Mac by default.
 
-In the toolbar select `Keychain Access > Certificate Assistant > Request a Certificate from a Certificate Authority` and you should see the below screen. Add you email, name, select `Saved to disk` and `Let me specify key pair information`.
+In the toolbar select `Keychain Access > Certificate Assistant > Request a Certificate from a Certificate Authority` and you should see the below screen. Add your email, name, select `Saved to disk` and `Let me specify key pair information`.
 <img src="/apple_pay/keychain access.png" alt=""/>
 
 Click continue and for the key pair information change `Algorithm` to `ECC` and `Key Size` to `256 bits`
@@ -56,7 +58,7 @@ Select `Apple Pay` and choose the `Merchant ID` that corresponds with this proje
 
 
 ## What is a Merchant ID and Certificate?
-What the heck did we just even do? In order to be able to accept payments you need to have an Apple Developer account and be a "verified" merchant able to accept payments. The Payment Processing Certificate is tied directly to that Merchant ID, and is used for encrypting the payment data that is being sent. The Apple Pay servers use the certificate to encrypt that payment data, and then your payment service provide can use it to decrpyt that data. So all of this was done in the name of security.
+What the heck did we just even do? In order to be able to accept payments you need to have an Apple Developer account and be a "verified" merchant able to accept payments. The Payment Processing Certificate is tied directly to that Merchant ID, and is used for encrypting the payment data that is being sent. The Apple Pay servers use the certificate to encrypt that payment data, and then your payment service provider can use it to decrypt that data. So all of this was done in the name of security.
 
 ## Add it to your Flutter App
 The first thing you will need is to add the <a href="https://pub.dev/packages/pay" target="_blank">`pay`</a> package to your flutter application. You will need to create an apple pay configuration. 
